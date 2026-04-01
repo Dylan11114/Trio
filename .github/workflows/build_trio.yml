@@ -216,6 +216,9 @@ jobs:
         (vars.SCHEDULED_SYNC != 'false' && needs.check_latest_from_upstream.outputs.NEW_COMMITS == 'true' )
       )
     steps:
+      - name: List available Xcode versions
+        run: ls /Applications | grep Xcode
+
       - name: Select Xcode version
         run: "sudo xcode-select --switch /Applications/Xcode_16.3.app/Contents/Developer"
       
